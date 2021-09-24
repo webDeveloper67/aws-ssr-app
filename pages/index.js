@@ -1,7 +1,8 @@
 import useSwr, { SWRConfig } from "swr";
+import { server } from "../config";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
-const API = "http://localhost:3000/api/helloworld";
+const API = `${server}/api/helloworld`;
 
 export async function getServerSideProps() {
   const textInfo = await fetcher(API);
